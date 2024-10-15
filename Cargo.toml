@@ -1,0 +1,15 @@
+[package]
+name = "bobo"
+version = "0.1.1"
+edition = "2021"
+
+authors = ["moluopro <moluopro@gmail.com>"]
+description = "an elegant and powerful rust development tool library"
+license = "MIT"
+repository = "https://github.com/moluopro"
+homepage = "https://github.com/moluopro"
+documentation = "https://github.com/moluopro"
+
+
+[dependencies]
+bobo-oop = "0.1.0"

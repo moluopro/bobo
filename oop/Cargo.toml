@@ -1,0 +1,19 @@
+[package]
+name = "bobo-oop"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["moluopro <moluopro@gmail.com>"]
+description = "a part of bobo library about oop"
+license = "Apache-2.0"
+repository = "https://github.com/moluopro"
+homepage = "https://github.com/moluopro"
+documentation = "https://github.com/moluopro"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+syn = { version = "2.0", features = ["full"] }
+quote = "1.0"
+proc-macro2 = "1.0"
