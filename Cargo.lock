@@ -12,6 +12,8 @@ dependencies = [
 [[package]]
 name = "bobo-oop"
 version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f4b247d62790bf523c81a33f2cbe85982eff003466c934177f392c466bcbdff"
 dependencies = [
  "proc-macro2",
  "quote",

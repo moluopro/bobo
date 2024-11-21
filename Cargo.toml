@@ -14,5 +14,5 @@ exclude = ["oop/"]
 
 
 [dependencies]
-# bobo-oop = "0.1.2"
-bobo-oop = { path = "oop" }
+bobo-oop = "0.1.2"
+# bobo-oop = { path = "oop" }
