@@ -25,6 +25,7 @@ struct Classes {
 
 impl Parse for Class {
     fn parse(input: ParseStream) -> syn::Result<Self> {
+        // 解析类名
         let name: Ident = input.parse()?;
         let content;
         braced!(content in input);
@@ -34,12 +35,15 @@ impl Parse for Class {
 
         while !content.is_empty() {
             if content.peek(Token![fn]) {
+                // 解析方法
                 let method: ImplItem = content.parse()?;
                 methods.push(method);
             } else {
+                // 解析字段
                 let ident: Ident = content.parse()?;
                 content.parse::<Token![:]>()?;
                 let ty: Type = content.parse()?;
+                // 处理可选的逗号或分号
                 if content.peek(Token![,]) {
                     content.parse::<Token![,]>()?;
                 } else {
@@ -49,7 +53,11 @@ impl Parse for Class {
             }
         }
 
-        Ok(Class { name, fields, methods })
+        Ok(Class {
+            name,
+            fields,
+            methods,
+        })
     }
 }
 
@@ -61,6 +69,7 @@ impl Parse for Classes {
             let class: Class = input.parse()?;
             classes.push(class);
 
+            // 如果有逗号，继续解析下一个类
             if input.peek(Token![,]) {
                 input.parse::<Token![,]>()?;
             }
@@ -87,12 +96,14 @@ pub fn class(input: TokenStream) -> TokenStream {
 
         let method_defs = methods.iter().map(|method| {
             if let ImplItem::Fn(mut method_fn) = method.clone() {
-                let method_name = &method_fn.sig.ident;
-                // 如果方法不是 `new`，则插入 `&self` 参数
-                if method_name != "new" {
-                    if !method_fn.sig.inputs.iter().any(|arg| matches!(arg, FnArg::Receiver(_))) {
-                        method_fn.sig.inputs.insert(0, syn::parse_quote!( &self ));
-                    }
+                // 检查方法签名，添加 &self 参数
+                if !method_fn
+                    .sig
+                    .inputs
+                    .iter()
+                    .any(|arg| matches!(arg, FnArg::Receiver(_)))
+                {
+                    method_fn.sig.inputs.insert(0, syn::parse_quote!(&self));
                 }
                 quote! {
                     #method_fn

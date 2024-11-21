@@ -1,14 +1,14 @@
 [package]
 name = "bobo-oop"
-version = "0.1.0"
+version = "0.1.2"
 edition = "2021"
 
 authors = ["moluopro <moluopro@gmail.com>"]
 description = "a part of bobo library about oop"
 license = "Apache-2.0"
-repository = "https://github.com/moluopro"
-homepage = "https://github.com/moluopro"
-documentation = "https://github.com/moluopro"
+repository = "https://github.com/moluopro/bobo"
+homepage = "https://github.com/moluopro/bobo"
+documentation = "https://github.com/moluopro/bobo"
 
 [lib]
 proc-macro = true
