@@ -1,6 +1,6 @@
 ## BOBO  
 an elegant and powerful rust development tool library  
-> Under construction, please ignore this library !  
+> In development, not recommended. The features listed in the documentation are implemented.  
 
 ### Quick Start  
 
@@ -67,31 +67,9 @@ class! {
     }
 
 }
-
-fn main() {
-    let person = Person {
-        name: String::from("Tom"),
-        age: 30
-    };
-
-    person.greet();
-    println!("I am {} years old.", person.get_age(5));
-
-    let animal = Animal {
-        species: String::from("Dog"),
-        age: 3
-    };
-
-    animal.speak();
-    println!(
-        "The {} is {} in human years.",
-        animal.species,
-        animal.age_in_human_years()
-    );
-}
 ```
 
-Create a class using a constructor called `new`:   
+Create a class using a constructor named `new`:   
 
 ```rust
 use bobo::oop::*;

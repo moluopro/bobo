@@ -61,6 +61,31 @@
 
 
 
+// use bobo::oop::*;
+
+// fn main() {
+//     let person = Person::new("Alice", 30);
+//     person.greet();
+// }
+
+// class! {
+//     Person {
+//         name: String
+//         age: u32
+
+//         fn new(name: &str, age: u32) -> Self {
+//             Self {
+//                 name: name.to_string(),
+//                 age
+//             }
+//         }
+
+//         fn greet() {
+//             println!("{}", format!("I'm {}.", self.name));
+//         }
+//     }
+// }
+
 use bobo::oop::*;
 
 fn main() {

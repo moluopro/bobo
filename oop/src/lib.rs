@@ -88,12 +88,13 @@ pub fn class(input: TokenStream) -> TokenStream {
         let method_defs = methods.iter().map(|method| {
             if let ImplItem::Fn(mut method_fn) = method.clone() {
                 let method_name = &method_fn.sig.ident;
-                // 如果方法不是 `new`，则插入 `&self` 参数
-                if method_name != "new" {
+
+                if method_name.to_string().to_lowercase() != "new" {
                     if !method_fn.sig.inputs.iter().any(|arg| matches!(arg, FnArg::Receiver(_))) {
                         method_fn.sig.inputs.insert(0, syn::parse_quote!( &self ));
                     }
                 }
+
                 quote! {
                     #method_fn
                 }

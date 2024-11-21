@@ -1,18 +1,19 @@
 [package]
 name = "bobo"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 
 authors = ["moluopro <moluopro@gmail.com>"]
-description = "an elegant and powerful rust development tool library"
+description = "an elegant utils library with oop support"
 license = "Apache-2.0"
 repository = "https://github.com/moluopro/bobo"
 homepage = "https://github.com/moluopro/bobo"
 documentation = "https://github.com/moluopro/bobo"
+keywords = ["oop", "inherit", "inheritance", "object-oriented"]
 
-exclude = ["oop/"]
+exclude = ["oop/", "example/"]
 
 
 [dependencies]
-bobo-oop = "0.1.2"
+bobo-oop = "0.1.3"
 # bobo-oop = { path = "oop" }

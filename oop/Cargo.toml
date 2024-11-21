@@ -1,6 +1,6 @@
 [package]
 name = "bobo-oop"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 
 authors = ["moluopro <moluopro@gmail.com>"]
@@ -9,9 +9,12 @@ license = "Apache-2.0"
 repository = "https://github.com/moluopro/bobo"
 homepage = "https://github.com/moluopro/bobo"
 documentation = "https://github.com/moluopro/bobo"
+keywords = ["oop", "inherit", "inheritance", "object-oriented"]
+
 
 [lib]
 proc-macro = true
+
 
 [dependencies]
 syn = { version = "2.0", features = ["full"] }
